@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>d3.selectAll</title>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+  <script>
+    
+    function main() {
+
+      d3.selectAll('p').style('background-color', '#ccc');
+
+    }
+
+  </script>
+</head>
+<body onload='main();'>
+
+
+  Change the <code>background-color</code> style for all <code>&lt;p&gt;</code><br><br>
+
+  <div>I am a div</div>
+  <p>Well, I am a p</p>
+  <div>And I am another div</div>
+  <p>I am a p, too</p>
+
+</body>
+</html>
