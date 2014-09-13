@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>d3.js: Bar Chart</title>
+
+  <style type="text/css">
+    .bar-chart div {
+      background-color:#fa5;
+      margin: 2px;
+      color: #713;
+      text-align: right}
+  </style>
+
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+    
+    function main() {
+
+      d3.select('.bar-chart').
+        selectAll('div').
+        data([194, 52, 228, 268, 163, 138, 92]).
+        enter().
+          append('div').
+          style ('width', function(d) {return d + "px"}).
+          text  (         function(d) {return d       });
+      
+    }
+
+  </script>
+</head>
+<body onload='main()'>
+
+  <div class='bar-chart'></div>
+
+</body>
+</html>
