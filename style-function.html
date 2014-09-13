@@ -9,9 +9,9 @@
 
     function main() {
 
-      d3.selectAll('div').style('background-color', function(d, i) {
+      d3.selectAll('div').style('background-color', function(data, index) {
 
-        document.getElementById('out').innerHTML += 'd: ' + d + ', i: ' +i + "<br>";
+        document.getElementById('out').innerHTML += 'data: ' + data + ', index: ' + index + "<br>";
 
         return '#' + Math.floor(Math.random() * 256).toString(16) + 
                      Math.floor(Math.random() * 256).toString(16) + 
@@ -25,7 +25,7 @@
 </head>
 <body onload='main();'>
 
-  Change the <code>background-color</code> of <code>&lt;body&gt;</code>.
+  Use <code>selectAll(...).style(..., function())</code> to change the style of selected elements.
 
   <div>div 1</div>
   <div>div 2</div>
@@ -37,6 +37,9 @@
   <div>div 8</div>
   <div>div 9</div>
 
+  <p>Compare with <a href='selectAll-data-style.html'>selectAll-data-style.html</a>
+
+  <h1>Out</h1>
   <p id='out'></p>
 
 </body>
