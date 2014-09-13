@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>enter</title>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+  <script>
+
+    function main() {
+
+      d3.select('body').// selectAll('div').
+        data([1,2,3,5,8,13,21,34,55,89]).
+        enter().append('div').
+        text(function(data, index) {return 'elem ' + index + ': ' + data;});
+
+    }
+
+  </script>
+</head>
+<body onload='main();'>
+
+
+</body>
+</html>
