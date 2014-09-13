@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>d3.js: Bar chart (scaled)</title>
+
+  <style type="text/css">
+
+
+    #bar-chart rect {
+      fill:#fa5;
+    }
+
+    #bar-chart text {
+      fill:#03f;
+      font: 10px sans-serif;
+      text-anchor: end;
+    }
+
+  </style>
+
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+
+    var data = [194, 52, 228, 268, 163, 138, 92];
+
+    var bar_height = 20;
+    
+    function main() {
+
+      var  window_width = window.innerWidth;
+
+      var scale=d3.scale.linear().
+            domain([0, d3.max(data)]).
+            range([0, window_width - 20]);
+
+      var bar_chart = d3.select('#bar-chart').
+            attr('width' , window_width).
+            attr('height', bar_height * data.length);
+
+
+      var bar = bar_chart.selectAll('g').
+                  data(data).
+                enter().append('g').
+                  attr('transform', function(d, i) {return 'translate(0,' + i* bar_height + ')'; });
+
+          bar.append('rect').
+                attr('width', scale).
+                attr('height', bar_height-3)
+
+          bar.append('text').
+               attr('x', function(d) {return scale(d) - 3;}).
+               attr('y', bar_height / 2).
+               attr('dy', '.25em').
+               text(function(d){return d});
+
+      
+    }
+
+  </script>
+</head>
+<body onload='main()'>
+
+  <svg id="bar-chart"></svg>
+
+</body>
+</html>
