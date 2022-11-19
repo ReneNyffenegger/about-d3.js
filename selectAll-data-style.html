@@ -3,23 +3,20 @@
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <title>style</title>
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"></script>
   <script>
 
     function main() {
 
       d3.selectAll('div')
-        .data(['red', 'blue', 'green', 'yellow'])
-        .style('background-color', function(data, index) {
+         .data(['red', 'blue', 'green', 'yellow'])
+         .style('background-color', function(data, index) {
 
-        document.getElementById('out').innerHTML += 'data: ' + data + ', index: ' + index + "<br>";
+          document.getElementById('out').innerHTML += 'data: ' + data + ', index: ' + index + "<br>";
 
-        return data;
-
-
+          return data;
       })
-
     }
 
   </script>

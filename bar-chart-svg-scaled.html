@@ -19,9 +19,8 @@
 
   </style>
 
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
-  <script type="text/javascript">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"></script>
+  <script>
 
     var data = [194, 52, 228, 268, 163, 138, 92];
 
@@ -31,7 +30,7 @@
 
       var  window_width = window.innerWidth;
 
-      var scale=d3.scale.linear().
+      var scale=d3.scaleLinear().
             domain([0, d3.max(data)]).
             range([0, window_width - 20]);
 

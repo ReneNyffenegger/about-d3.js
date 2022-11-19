@@ -3,14 +3,14 @@
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <title>style</title>
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"></script>
   <script>
 
     function main() {
 
       d3.selectAll('div')
-        .data(['red', 'blue', 'green', 'yellow'])
+        .data(['tomato', 'aqua', 'greenyellow', 'yellow'])
         .text (                    function(data, index) { return 'data: ' + data + ', index: ' + index ; })
         .style('background-color', function(data, index) { return data;                                   })
 
