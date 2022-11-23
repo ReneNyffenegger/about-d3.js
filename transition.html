@@ -8,9 +8,10 @@
   <script>
 
     function transit(to_color) {
-       d3.select('body').
-          transition().
-          style('background-color', to_color)
+       d3.select('body')
+         .transition()
+         .duration(1234) // Optional: Set duration of transition in milli-seconds (default: 250 ms)
+         .style('background-color', to_color)
     }
 
   </script>
