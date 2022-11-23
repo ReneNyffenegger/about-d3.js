@@ -25,7 +25,7 @@
     function main() {
 
       d3.select('.bar-chart').
-        selectAll('div').
+        selectAll().             // What is this step really needed for?
         data([194, 52, 228, 268, 163, 138, 92]).
         enter().
           append('div').
