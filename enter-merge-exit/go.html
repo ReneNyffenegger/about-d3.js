@@ -27,6 +27,9 @@ function showNextDataset() {
           .data(dataSets[nextDataset])
           ;
 
+//
+// Create new rects
+//
    let newRects = allRects.enter()
           .append('rect')
           .attr('x'     , '10'     )
@@ -35,6 +38,9 @@ function showNextDataset() {
           .attr('y'     , (d, i) => {console.log("i = " + i); return 10 + i*60;})
           ;
 
+//
+// Determine rects that need to be updated (new rects + existing rects)
+//
    let rectsToUpdate = newRects.merge(allRects);
 
    rectsToUpdate
@@ -42,8 +48,11 @@ function showNextDataset() {
           .attr('width', (d, i) => {console.log("d.val = " + d.val); return d.val;})
           ;
 
+//
+// If number of rects is larger than data points,
+// some need to be deleted
+//
    let rectsToDelete = allRects.exit();
-  
    rectsToDelete
           .transition()
           .attr('width' , 0)
@@ -51,7 +60,7 @@ function showNextDataset() {
           .remove()
           ;
 
-// ---
+// --- Same thing for text ---
 
    let allTexts = d3.select('svg')
           .selectAll('text')
