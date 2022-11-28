@@ -1,0 +1,15 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+     @import url("https://fonts.googleapis.com/css?family=Open+Sans:400");
+  </style>
+
+  <rect height="40" width="500" y= "10" x="10" fill="#cd4ae7"/>
+  <rect height="40" width="350" y= "70" x="10" fill="#cd4ae7"/>
+  <rect height="40" width="400" y="130" x="10" fill="#cd4ae7"/>
+
+  <text font-family="Open Sans" font-size="30" y= "40" x="20"  fill="#56ffbe">Text one</text>
+  <text font-family="Open Sans" font-size="30" y="100" x="20"  fill="#56ffbe">Text two</text>
+  <text font-family="Open Sans" font-size="30" y="160" x="20"  fill="#56ffbe">Text three</text>
+
+</svg>

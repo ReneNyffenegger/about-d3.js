@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>Enter merge exit</title>
+
+ <link rel ="stylesheet"
+       href="https://fonts.googleapis.com/css?family=Open+Sans:400">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"></script>
+<script>
+
+
+let dataSets = [
+
+   [ {name: 'foo', val: 173}, {name: 'bar', val: 280}, {name: 'baz'  , val: 215} ],
+   [ {name: 'A'  , val: 206}, {name: 'B'  , val: 305}, {name: 'C'    , val: 288}, {name: 'D'   , val: 184}, {name: 'E', val: 125} ],
+   [ {name: 'one', val: 313}, {name: 'two', val: 127}, {name: 'three', val: 256}, {name: 'four', val: 284},]
+
+];
+let nextDataset = 0;
+
+function showNextDataset() {
+
+   let allRects = d3.select('svg')
+          .selectAll('rect')
+          .data(dataSets[nextDataset])
+          ;
+
+   let newRects = allRects.enter()
+          .append('rect')
+          .attr('x'     , '10'     )
+          .attr('height', '40'     )
+          .attr('fill'  , '#cd4ae7')
+          .attr('y'     , (d, i) => {console.log("i = " + i); return 10 + i*60;})
+          ;
+
+   let rectsToUpdate = newRects.merge(allRects);
+
+   rectsToUpdate
+          .transition()
+          .attr('width', (d, i) => {console.log("d.val = " + d.val); return d.val;})
+          ;
+
+   let rectsToDelete = allRects.exit();
+  
+   rectsToDelete
+          .transition()
+          .attr('width' , 0)
+          .attr('height', 0)
+          .remove()
+          ;
+
+// ---
+
+   let allTexts = d3.select('svg')
+          .selectAll('text')
+          .data(dataSets[nextDataset])
+          ;
+
+
+   let newTexts = allTexts.enter()
+          .append('text')
+          .attr('font-family', 'Open Sans')
+          .attr('font-size'  , '0'        )
+          .attr('height'     , '40'       )
+          .attr('x'          , '20'       )
+          .attr('fill'       , '#56ffbe'  )
+          .attr('y'          , (d, i) => {console.log("i = " + i); return 40 + i*60;})
+          ;
+
+   let textsToUpdate = newTexts.merge(allTexts);
+
+   textsToUpdate
+          .transition()
+          .attr('font-size', '30')
+          .text(d => d.name      )
+          ;
+
+   let textsToDelete = allTexts.exit();
+  
+   textsToDelete
+          .transition()
+          .attr('font-size', 0)
+          .remove()
+          ;
+
+   nextDataset = (++nextDataset) % dataSets.length;
+}
+
+</script>
+
+</head>
+<body onload="showNextDataset()">
+
+
+  <svg width=400 height=300 style="background-color:#f3f3f3">
+
+  </svg>
+  <p>
+  <button onclick="showNextDataset()">Show next dataset</button>
+
+</body>
+</html>
